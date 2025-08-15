@@ -48,7 +48,7 @@
     margin-top: 0;
     margin: 0;
     margin-bottom: 0;
-    color: rgb(255, 240, 252);
+    color: rgb(183, 10, 226);
     font-size: 1.05rem;
     line-height: 2.25rem;
     border-color: hsl(var(--border));
@@ -66,7 +66,7 @@
             );
             background-clip: text;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: pink;
+            -webkit-text-fill-color: #ec09bb;
             animation: electroPulse 4.5s ease-in-out infinite;
 }
 .container:hover {
@@ -215,7 +215,7 @@ input[type="range"] {
 
 
 .musiccontainer{
-    background-color: #5ed1e3;
+    background-color: #fffbfe48;
     height: 500px;
     width: 400px;
     border-radius: 20px;
@@ -257,16 +257,19 @@ input[type="range"] {
     transition: all 0.5s;
     opacity: 1;
 }
-
+.opaque {
+    color: #000b;
+}
 h2{
-    font-size: 25px;
+    font-size: 35px;
     text-align: center;
     font-weight: 500;
     margin: 10px 0 0;
+    font-weight: bold;
 }
 
 h3{
-    font-size: 18px;
+    font-size: 25px;
     text-align: center;
     font-weight: 500;
     margin: 10px 0 0;
@@ -336,7 +339,7 @@ h3{
 
 }
 .social-contains a svg{
- fill: #cc26c4;
+ fill: #ec09bb;
     text-decoration: none;
     font-size: 24px;
     height: 32px
