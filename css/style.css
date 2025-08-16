@@ -19,11 +19,6 @@
   z-index: -1;
   pointer-events: none;
 }
-@media (max-width: 600px) {
-  body {
-    background-size: auto 300px; /* Width auto, height fixed */
-  }
-}
 .circle-img {
  display: block;
   width: 128px;
@@ -68,12 +63,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: #ec09bb;
             animation: electroPulse 4.5s ease-in-out infinite;
+            
 }
 .container:hover {
 animation-play-state: paused;
 }
-
-
 
 @keyframes electroPulse {
             0%, 100% {
@@ -215,7 +209,7 @@ input[type="range"] {
 
 
 .musiccontainer{
-    background-color: #fffbfe48;
+    background-color: #020507b9;
     height: 500px;
     width: 400px;
     border-radius: 20px;
@@ -228,6 +222,50 @@ input[type="range"] {
 }
 .musiccontainer:hover{
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+@media (width < 1300px) {
+    .musiccontainer {
+        left: 34%;
+        margin-top: 0%;
+    }
+    
+}
+
+@media (width < 1200px) {
+    .musiccontainer {
+            left: 33%;
+    margin-top: 0%;
+    }
+}
+@media (width < 1100px) {
+    .musiccontainer {
+            left: 32%;
+    margin-top: 0%;
+    }
+}
+@media (width < 1000px) {
+    .musiccontainer {
+            left: 31%;
+    margin-top: 0%;
+    }
+}
+@media (width < 800px) {
+    .musiccontainer {
+            left: 25%;
+    margin-top: 0%;
+    }
+}
+@media (width < 700px) {
+    .musiccontainer {
+            left: 20%;
+    margin-top: 0%;
+    }
+}
+@media (width < 500px) {
+    .musiccontainer {
+            left: 8%;
+    margin-top: 0%;
+    }
 }
 
 .player-img{
@@ -266,13 +304,29 @@ h2{
     font-weight: 500;
     margin: 10px 0 0;
     font-weight: bold;
+            background: linear-gradient(45deg, #ec09bb, #ff6ec7, #ffb6f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    
+}
+.player-controls{
+                background: linear-gradient(45deg, #ec09bb, #ff6ec7, #ffb6f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: var(--yune-electro);
+      animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 h3{
+    font-weight: bold;
     font-size: 25px;
     text-align: center;
     font-weight: 500;
     margin: 10px 0 0;
+    color: #ffffff;
+}
+.music-duration{
+    color: #ffffff;
 }
 
 .player-progress{
@@ -283,6 +337,7 @@ h3{
     height: 6px;
     width: 90%;
 }
+
 
 .progress{
     background-color: #212121;
@@ -339,11 +394,21 @@ h3{
 
 }
 .social-contains a svg{
- fill: #ec09bb;
+    fill: #ec09bb;
     text-decoration: none;
     font-size: 24px;
-    height: 32px
+    height: 32px;
+
+    
 }
+  @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ec09bb, 0 0 20px #ec09bb, 0 0 30px #ff6ec7;
+      }
+      to {
+        text-shadow: 0 0 20px #ff6ec7, 0 0 30px #ffb6f1, 0 0 40px #ec09bb;
+      }
+    }
 .social-contains a:hover {
     color: var(--yune-electro);
     text-shadow: 0 0 12px var(--yune-glow), 0 0 20px var(--yune-electro);
@@ -367,4 +432,23 @@ h3{
     opacity: 1;
     transform: scale(1.1) rotate(90deg);
     transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000; /* optional: set to match your GIF or site theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#preloader img {
+   width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }

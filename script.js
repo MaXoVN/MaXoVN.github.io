@@ -1,4 +1,21 @@
-window.onload = function() {
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    const mainContent = document.getElementById("main-content");
+
+    // Keep preloader visible for 3 seconds
+    setTimeout(() => {
+      // Fade out preloader
+      preloader.style.opacity = "0";
+      preloader.style.transition = "opacity 0.5s ease";
+
+      // After fade-out, hide preloader and show content
+      setTimeout(() => {
+        preloader.style.display = "none";
+        mainContent.classList.add("rise-in");
+      }, 500); // Wait for fade-out to finish
+    }, 2000); // 3-second delay before fade-out starts
+  });
+  window.onload = function() {
   const canvas = document.getElementById('sparks-canvas');
   const ctx = canvas.getContext('2d');
 
