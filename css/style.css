@@ -209,12 +209,13 @@ input[type="range"] {
 
 
 .musiccontainer{
-background-color: #020507b9;
+  background-color: #020507b9;
   height: 500px;
   width: 400px;
   border-radius: 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease;
+  /* Remove fixed positioning */
   position: fixed;
   top: 60%;
   left: 50%;
@@ -231,6 +232,72 @@ background-color: #020507b9;
     position: relative;
     top: -50px;
     left: 50px;
+}
+@media (max-width: 600px) {
+  html, body {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  body {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+  }
+  .musiccontainer {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: none;
+    box-shadow: none;
+    margin: 0;
+    overflow: hidden;
+    transform: scale(0.4);
+  }
+    .player-controls {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    }
+    .button {
+        display:none;
+    }
+  .container,
+  .player-img,
+  .social-contains {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .player-img {
+    height: auto;
+    left: 0;
+    top: 0;
+  }
+  .social-contains {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100vw;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    top: auto;
+    margin: 0;
+  }
 }
 
 .player-img img{
