@@ -226,9 +226,7 @@ input[type="range"] {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    overflow-y: auto; /* Allow vertical scrolling on mobile */
-  }
+    box-sizing: border-box;  }
   body {
     overflow: hidden; /* Prevent scrolling when .discord-presence is shrunk */
   }
