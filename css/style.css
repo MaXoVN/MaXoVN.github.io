@@ -102,6 +102,46 @@ input[type="range"] {
   width: 100%;
   margin: 5px 0;
 }
+.music {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    /* Remove background */
+    --tw-bg-opacity: 1;
+    color: rgba(255, 255, 255, 0.836);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.music button {
+    background-color: rgba(0, 0, 0, 0.932); /* Add background to button */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.music.playing:hover {
+    background-color: rgba(0, 0, 0, 0.932); /* Extend background to container when slider appears */
+}
+
+.music button, .music input[type="range"] {
+    background: none;
+    color: #fffdff; /* Same color for both */
+    border: none;
+}
+
 .button{
   position: fixed;
   bottom: 20px;
@@ -532,4 +572,10 @@ h3{
     filter: blur(22px);
     border-radius: 14px;
   }
+}
+.music #volume-slider {
+    display: none; /* Hide by default */
+}
+.music.playing:hover #volume-slider {
+    display: inline-block; /* Show on hover when playing */
 }
