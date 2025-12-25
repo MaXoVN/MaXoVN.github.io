@@ -517,6 +517,9 @@ h3{
     padding: 12px 14px;
     font-size: 13px;
   }
+  #preloader {
+    display: none;
+  }
 }
   @media (max-height:450px){
   .discord-presence{
