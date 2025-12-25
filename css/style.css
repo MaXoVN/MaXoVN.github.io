@@ -1,4 +1,3 @@
-
 :root {
       font-weight: 500;
     line-height: 1.4;
@@ -43,7 +42,7 @@
     margin-top: 0;
     margin: 0;
     margin-bottom: 0;
-    color: rgb(183, 10, 226);
+    color: rgb(236, 9, 187);
     font-size: 1.05rem;
     line-height: 2.25rem;
     border-color: hsl(var(--border));
@@ -104,7 +103,7 @@ input[type="range"] {
   margin: 5px 0;
 }
 .button{
-    position: fixed;
+  position: fixed;
   bottom: 20px;
   left: 20px;
   z-index: 1000;
@@ -126,7 +125,7 @@ input[type="range"] {
     margin-right: 0.5rem;
     border-radius: 9999px;
   --tw-bg-opacity: 1;
-    background-color: rgb(221 114 247 / var(--tw-bg-opacity));
+    background-color: rgb(236 9 187 / var(--tw-bg-opacity));
     border-color: hsl(var(--border));
     box-sizing: border-box;
     border: 0 solid #e5e7eb;
@@ -208,24 +207,6 @@ input[type="range"] {
 }
 
 
-.musiccontainer{
-  background-color: #020507b9;
-  height: 500px;
-  width: 400px;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease;
-  /* Remove fixed positioning */
-  position: fixed;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.5);
-
-}
-.musiccontainer:hover{
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-}
-
 .player-img{
     width: 300px;
     height: 300px;
@@ -233,7 +214,12 @@ input[type="range"] {
     top: -50px;
     left: 50px;
 }
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
+  .button {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
   html, body {
     width: 100vw;
     height: 100vh;
@@ -241,39 +227,11 @@ input[type="range"] {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: auto; /* Allow vertical scrolling on mobile */
   }
   body {
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
+    overflow: hidden; /* Prevent scrolling when .discord-presence is shrunk */
   }
-  .musiccontainer {
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    border-radius: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: none;
-    box-shadow: none;
-    margin: 0;
-    overflow: hidden;
-    transform: scale(0.4);
-  }
-    .player-controls {
-    position: absolute;
-    left: 50%;
-    top: 55%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    margin: 0 auto;
-    text-align: center;
-    }
-    .button {
-        display:none;
-    }
   .container,
   .player-img,
   .social-contains {
@@ -287,16 +245,9 @@ input[type="range"] {
     left: 0;
     top: 0;
   }
-  .social-contains {
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    width: 100vw;
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    top: auto;
-    margin: 0;
+  .button {
+        display: none; /* hide the fixed button on small screens */
+
   }
 }
 
@@ -349,41 +300,6 @@ h3{
     margin: 10px 0 0;
     color: #ffffff;
 }
-.music-duration{
-    color: #ffffff;
-}
-
-.player-progress{
-    background-color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 40px 20px 35px;
-    height: 6px;
-    width: 90%;
-}
-
-
-.progress{
-    background-color: #212121;
-    border-radius: 5px;
-    height: 100%;
-    width: 0%;
-    transition: width 0.1s linear;
-}
-
-.music-duration{
-    position: relative;
-    top: -25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.player-controls{
-    position: relative;
-    top: -15px;
-    left: 120px;
-    width: 200px;
-}
 
 .fa-solid{
     font-size: 30px;
@@ -397,24 +313,19 @@ h3{
 .fa-solid:hover{
     filter: brightness(40%);
 }
-
-.play-button{
-    font-size: 44px;
-    position: relative;
-    top: 3px;
-}
 .social-contains {
    display:flex;
    gap: 30px;
    justify-content: center;
    align-items: center;
    flex-direction: row;
+   flex-wrap: wrap; /* Allow icons to wrap to next line */
    box-sizing: border-box;
    border: 0 solid #e5e7eb;
    border-color: hsl(var(--border));
    unicode-bidi: isolate;
    position: relative;
-   top: 300px;
+   top: 200px;
 
 }
 .social-contains a svg{
@@ -475,4 +386,149 @@ h3{
    width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+.discord-presence{
+
+  display: flex; /* Change to flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: fixed; /* Fix invalid position value */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) scale(0.8); /* Center and shrink */
+  will-change: transform;         /* hint for smoother rendering */
+  z-index: 1300;
+  pointer-events: auto;
+  -webkit-user-drag: none;        /* prevent dragging */
+  user-select: none;             /* prevent text selection */
+  touch-action: none;            /* prevent touch actions */
+  overflow: visible; /* allow pseudo-elements to show outside */
+  border-radius: 12px; /* rounded corners */
+}
+
+.discord-presence img,
+.discord-presence .dp-avatar,
+.discord-presence .dp-app-icon {
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+}
+.discord-presence .dp-avatar{
+  width:72px;                  /* avatar lớn hơn */
+  height:72px;
+  border-radius:12px;
+  object-fit:cover;
+  flex-shrink:0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+
+}
+.discord-presence .dp-info{ display:flex; flex-direction:column; gap:2px; overflow:hidden; }
+.dp-status.online{ color:#43b581; }
+.dp-status.idle{ color:#faa61a; }
+.dp-status.dnd{ color:#f70707; }
+.dp-status.offline{ color:#9aa0a6; }
+.dp-name{ color:#ec09bb ;font-weight:800; font-size:16px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+.dp-status{ font-weight:700; opacity:0.95; font-size:13px; text-transform:capitalize; }
+.dp-activity{ font-size:13px; color:#e7e7e7; opacity:0.95; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+/* mobile: giữ vừa vặn trên màn hình nhỏ */
+.dp-left{ display:flex; gap:10px; align-items:center; margin-right:8px; }
+.dp-app-icon{
+  width:56px;
+  height:56px;
+  border-radius:10px;
+  object-fit:cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  flex-shrink:0;
+}
+.dp-left .dp-avatar {
+  order: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.dp-left .dp-app-icon {
+  order: 1;
+  width: 44px;
+  height: 44px;
+  margin-left: 8px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  flex-shrink: 0;
+}
+.discord-presence .dp-avatar {
+  width: 72px;
+  height: 72px;
+}
+@media (max-width:600px){
+  .discord-presence{
+    display: flex; /* Change to flex for consistency */
+    position: absolute; /* Fix invalid position value */
+    top: 50%;
+    transform: translate(-50%, -40%) scale(0.8); /* Keep position and shrink */
+    min-width: 280px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+}
+  @media (max-height:450px){
+  .discord-presence{
+    display: none;
+    top: 100%;
+  }
+  .discord-presence .dp-avatar{ width:56px; height:56px; }
+  .dp-name{ font-size:14px; }
+  .dp-activity{ font-size:12px; }
+    .dp-app-icon{ width:44px; height:44px; }
+  .discord-presence .dp-avatar{ width:44px; height:44px; }
+}
+.discord-presence::before{
+  content: "";
+  position: absolute;
+  inset: -30% -30% -30% -30%; /* mở rộng vùng glow để phủ background lớn hơn */
+  background: linear-gradient(120deg, rgba(236,9,187,0.08), rgba(255,110,199,0.06), rgba(154,63,255,0.06));
+  background-size: 200% 200%;
+  opacity: 0.9;
+  filter: blur(18px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: dpGradient 8s ease-in-out infinite;
+  z-index: -1; /* xuống sau nội dung */
+  border-radius: 18px; /* bo góc glow để khớp với nền */
+}
+
+/* square background behind the presence */
+.discord-presence::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 100px);   /* kéo dài ra một chút */
+  height: calc(100% + 60px);
+  transform: translate(-50%, -50%);
+  background: linear-gradient(180deg, rgba(79, 9, 94, 0.92), rgba(34,10,70,0.86));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45), 0 4px 18px rgba(120,40,180,0.06);
+  pointer-events: none;
+  z-index: -2; /* nằm dưới glow và nội dung */
+  border-radius: 14px; /* bo góc cho nền vuông */
+}
+
+/* nội dung luôn trên các pseudo layers */
+.discord-presence > * { position: relative; z-index: 1; }
+
+/* mobile: giảm khoảng cách square để không quá lớn */
+@media (max-width:600px){
+  .discord-presence::after{
+    width: calc(100% + 28px); /* mobile: cũng mở rộng hơn chút so với trước */
+    height: calc(100% + 28px);
+    z-index: -2;
+    border-radius: 10px; /* bo góc nhỏ hơn trên mobile */
+  }
+  .discord-presence::before{
+    inset: -50% -70% -50% -70%; /* tăng để glow vẫn phủ */
+    filter: blur(22px);
+    border-radius: 14px;
+  }
 }
