@@ -460,6 +460,9 @@ h3{
   height: 72px;
 }
 @media (max-width:600px){
+ .circle-img {
+    margin-top: 30px; /* Adjust this value to move the image down as needed */
+  }
   .discord-presence{
     display: flex; /* Change to flex for consistency */
     position: absolute; /* Fix invalid position value */
